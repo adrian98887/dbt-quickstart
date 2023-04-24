@@ -9,7 +9,6 @@ models:
         tests:
           - unique
           - not_null
-
   - name: stg_orders
     description: One order per customer
     columns:
@@ -19,7 +18,7 @@ models:
           - unique
           - not_null
       - name: status
-        description: '{{ docs ("order_status") }}'
+       # description:  '{{ doc ("order_status") }}'
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
