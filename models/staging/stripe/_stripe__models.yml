@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_payments
+    description: This model tells us the payments information per transaction
+    columns:
+      - name: payment_id
+        description: Primary Key
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Foreign Key
+        tests:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+
